@@ -64,11 +64,9 @@ function App() {
       </div>
     </div>
 
-    <div>
     {
       stats.length === 2 ? <BothStats blueStats={stats[0]} redStats={stats[1]} /> : ""
     }     
-    </div>
     </div>
   );
 }
