@@ -9,6 +9,8 @@ export default function BothStats(props) {
 
     const [winner, setWinner] = useState("")
 
+    const [logs, setLogs] = useState([])
+
     useEffect(() => {
         Fight(props.blueStats, props.redStats)
     }, [])
@@ -26,11 +28,13 @@ export default function BothStats(props) {
 
             if(Math.floor(blueFightDuration * 10) / 10 - parseFloat(blueStats.attackDelay) === 0.0){
 
-                redCurrentHp -= blueStats.attack
+                redCurrentHp -= blueStats.attack - blueStats.attack * (redStats.defence / 100)
 
                 setRedHp(redCurrentHp)
 
                 blueFightDuration = 0
+
+                setLogs(logs => [...logs, `${blueStats.name} löi ${redStats.name}a ja teki ${(blueStats.attack - blueStats.attack * (redStats.defence / 100)).toFixed(2)} vahinkoa. ${redStats.name}lle jäi ${redCurrentHp.toFixed(1)} hp`])
 
                 if(redCurrentHp <= 0){
                     redCurrentHp = 0
@@ -38,6 +42,7 @@ export default function BothStats(props) {
                     clearInterval(blueTimer)
                     clearInterval(redTimer)
 
+                    setLogs(logs => [...logs, `${blueStats.name} voitti`])
                     setWinner(blueStats.name)
                 }
             }
@@ -49,11 +54,13 @@ export default function BothStats(props) {
 
             if(Math.floor(redFightDuration * 10) / 10 - parseFloat(redStats.attackDelay) === 0.0){
 
-                blueCurrentHp -= redStats.attack
+                blueCurrentHp -= redStats.attack - redStats.attack * (blueStats.defence / 100)
 
                 setBlueHp(blueCurrentHp)
                 
                 redFightDuration = 0
+
+                setLogs(logs => [...logs, `${redStats.name} löi ${blueStats.name}a ja teki ${(redStats.attack - redStats.attack * (blueStats.defence / 100)).toFixed(2)} vahinkoa. ${blueStats.name}lle jäi ${blueCurrentHp.toFixed(1)} hp`])
                 
                 if(blueCurrentHp <= 0){
                     blueCurrentHp = 0
@@ -61,6 +68,7 @@ export default function BothStats(props) {
                     clearInterval(blueTimer)
                     clearInterval(redTimer)
 
+                    setLogs(logs => [...logs, `${redStats.name} voitti`])
                     setWinner(redStats.name)
                 }
             }
@@ -93,10 +101,20 @@ export default function BothStats(props) {
             {
                 winner !== "" ? 
                     <div className="text-center p-4">
-                        <h3>Voittaja on {winner}</h3>
+                        <h3>Voittaja on {winner}!</h3>
                     </div>
                 : ""
             }
+
+            <details>
+                <summary>Lokit</summary>
+
+                {
+                    logs.map(log => (
+                        <p>{log}</p>
+                    ))
+                }
+            </details>
         </>
     )
 }
