@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 
 import BothStats from "./components/BothStats";
-import HealthBar from "./components/HealthBar";
 
 const url = "http://localhost:8080/api/food/";
 
@@ -44,7 +43,6 @@ function App() {
     FetchData(red)
 
     setIsShown(false)
-
   }
 
   const Reset = () => {
@@ -81,11 +79,8 @@ function App() {
 
     {
       stats.length === 2 ?
-      
-        <div className="p-4">
-          <HealthBar currentHp="50" />
+      <div className="p-4">
           <BothStats blueStats={stats[0]} redStats={stats[1]} />
-          <HealthBar currentHp="90" />
         </div>
         : ""
     }     
