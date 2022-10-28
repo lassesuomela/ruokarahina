@@ -8,16 +8,17 @@ Windows 10 testattu.
 ## Ohjeet miten ratkaisusi pystytetään ja käynnistetään
 
 - `git clone https://github.com/lassesuomela/ruokarahina.git` # kloonaa repo
-- `cd ./backend`
-- `npm ci`
-- `npm start`
-- `cd ../frontend`
-- `npm ci`
-- `npm start`
-
+- `cd ./backend` # mene backend kansioon
+- `npm ci` # asenna dependencyt
+- `npm start` # käynnistä node (starttaa porttiin 8080)
+- `cd ../frontend` # mene frontend kansioon
+- `npm ci` # asenna dependencyt
+- `npm start` # käynnistä react
+- avaa [localhost:3000](http://localhost:3000)
+  
 ## Muutaman lauseen kuvaus tekemästäsi ratkaisusta
 
-Olen tänä syksynä opetellut Reactin käyttöä, joten toteutuksesta ei kovin elegantti tullut (kts. pelilogiikka) mutta toimivan ratkaisun sain tehtyä.
+Tänä syksynä olen vasta alkanut opettelemaan Reactin käyttöä, joten toteutuksesta ei kovin elegantti tullut, mutta toimivan ratkaisun sain silti tehtyä. Aloitin kanssa varsin myöhään tämän projektin tekemisen (28 päivä), joten se tuli myös tehtyä aika kiireellä.
 
 ## Muuta
 
