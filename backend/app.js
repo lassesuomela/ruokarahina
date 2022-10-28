@@ -12,6 +12,10 @@ app.use(helmet())
 app.use(express.json())
 app.use(morgan("dev"))
 
+const foodRoutes = require("./routes/foodRoutes")
+
+app.use("/api", foodRoutes)
+
 app.listen(port, "0.0.0.0", () => {
     console.log(`Listening at http://localhost:${port}`)
 })
