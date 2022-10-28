@@ -5,6 +5,7 @@ export default function BothStats(props) {
 
     return (
         <div className="d-flex justify-content-center p-4">
+
             <StatsDisplay stats={props.blueStats}/>
 
             <div className="align-self-end d-grid">

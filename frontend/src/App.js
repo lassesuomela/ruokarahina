@@ -1,15 +1,19 @@
 import axios from "axios";
 import { useState } from "react";
 
-import BothStats from "./components/BothStats"
+import BothStats from "./components/BothStats";
+import HealthBar from "./components/HealthBar";
+
 const url = "http://localhost:8080/api/food/";
 
 function App() {
 
-  const [stats, setStats] = useState([]);
+  const [stats, setStats] = useState([])
 
-  const [blue, setBlue] = useState("");
-  const [red, setRed] = useState("");
+  const [blue, setBlue] = useState("")
+  const [red, setRed] = useState("")
+
+  const [isShown, setIsShown] = useState(true)
 
   const FetchData = (foodName) => {
 
@@ -38,6 +42,14 @@ function App() {
 
     FetchData(blue)
     FetchData(red)
+
+    setIsShown(false)
+
+  }
+
+  const Reset = () => {
+    setIsShown(true)
+    setStats([])
   }
 
   return (
@@ -47,7 +59,8 @@ function App() {
 
     <div className="d-flex justify-content-center pt-3">
 
-      <div className="form-control w-25 ">
+      {
+        isShown ? <div className="form-control w-25 ">
 
         <form className="p-4" onSubmit={Fetch}>
 
@@ -62,10 +75,19 @@ function App() {
           </div>
         </form>
       </div>
+      : <button className="btn btn-dark" onClick={Reset}>Reset</button>
+      }
     </div>
 
     {
-      stats.length === 2 ? <BothStats blueStats={stats[0]} redStats={stats[1]} /> : ""
+      stats.length === 2 ?
+      
+        <div className="p-4">
+          <HealthBar currentHp="50" />
+          <BothStats blueStats={stats[0]} redStats={stats[1]} />
+          <HealthBar currentHp="90" />
+        </div>
+        : ""
     }     
     </div>
   );
