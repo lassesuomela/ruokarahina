@@ -65,12 +65,12 @@ function App() {
         <form className="p-4" onSubmit={Fetch}>
 
           <label className="form-label" for="blueInput">Sininen puoli</label>
-          <input id="blueInput" type="text" className="form-control" placeholder="Sininen puoli" onChange={e => setBlue(e.target.value)} required/>
+          <input id="blueInput" type="text" className="form-control" placeholder="Kurkku" onChange={e => setBlue(e.target.value)} required/>
 
           <p className="text-center pt-4 mb-0">vs.</p>
 
           <label className="form-label pt-4" for="redInput">Punainen puoli</label>
-          <input id="redInput" type="text" className="form-control" placeholder="Punainen puoli" onChange={e => setRed(e.target.value)} required/>
+          <input id="redInput" type="text" className="form-control" placeholder="Paprika" onChange={e => setRed(e.target.value)} required/>
 
           <div className="pt-4 text-center">
             <button type="submit" className="btn btn-dark">Hae</button>

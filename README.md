@@ -17,8 +17,18 @@ Frontend on tehty React.js + Bootstrap 5 yhdistelmällä ja backend on toteutett
   
 ## Muutaman lauseen kuvaus tekemästäsi ratkaisusta
 
-Tänä syksynä olen vasta alkanut opettelemaan Reactin + Bootstrap 5:n käyttöä, joten toteutuksesta ei kovin elegantti tullut, mutta toimivan ratkaisun sain silti tehtyä. Vähäsen harmittaa se miten toteutin pelilogiikkani (käytin kahta setInervallia enkä tehnyt molempia samassa). Aloitin varsin myöhään tämän projektin tekemisen (28 päivä), joten se tuli myös tehtyä aika kiireellä. Kaiken kaikkiaan oikeen mukava koodihaaste ja olisi kiva tehdä näitä myös jatkossa.
+Olen vasta tänä syksynä alkanut opettelemaan Reactin + Bootstrap 5:n käyttöä, joten toteutuksesta ei kovin elegantti tullut, mutta toimivan ratkaisun sain silti tehtyä. Vähäsen harmittaa se miten toteutin pelilogiikkani (mm. käytin kahta setInervallia enkä tehnyt molempia samassa + prop drilling). Aloitin varsin myöhään tämän projektin tekemisen (28 päivä), joten se tuli myös tehtyä aika kiireellä. Kaiken kaikkiaan oikeen mukava koodihaaste ja olisi kiva tehdä näitä myös jatkossa.
 
 ## Muuta
 
 Haluan osallistua kilpailuun ja arvontaan sekä minuun voi ottaa yhteyttä mikäli työhaastatteluja olisi tarjolla (harjoitteluun, kesätyöhön, osa-aikaiseen, tjms, kun kuitenkin opiskelija vielä olen).
+
+## Kuvia
+
+![Pelin aloitus](./images/game_start.png)
+
+![peli kännissä](./images/game_on.png)
+
+![Peli ohi](./images/game_won.png)
+
+![Lokit](./images/logs.png)
