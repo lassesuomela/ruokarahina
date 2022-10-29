@@ -33,7 +33,7 @@ export default function BothStats(props) {
 
                 blueFightDuration = 0
 
-                setLogs(logs => [...logs, `${blueStats.name.split(',')[0]} löi ${redStats.name.split(',')[0]}a ja teki ${(blueStats.attack - blueStats.attack * (redStats.defence / 100)).toFixed(1)} (${blueStats.attack} - ${blueStats.attack} * ${(redStats.defence / 100).toFixed(3)}) vahinkoa. ${redStats.name.split(',')[0]}lle jäi ${redCurrentHp.toFixed(1)} HP:ta`])
+                setLogs(logs => [...logs, `${blueStats.name} löi ja teki ${(blueStats.attack - blueStats.attack * (redStats.defence / 100)).toFixed(1)} (${blueStats.attack} - ${blueStats.attack} * ${(redStats.defence / 100).toFixed(3)}) vahinkoa. ${redStats.name}lle jäi ${redCurrentHp.toFixed(1)} HP:ta.`])
 
                 if(redCurrentHp <= 0){
                     redCurrentHp = 0
@@ -41,7 +41,7 @@ export default function BothStats(props) {
                     clearInterval(blueTimer)
                     clearInterval(redTimer)
 
-                    setLogs(logs => [...logs, `${blueStats.name.split(',')[0]} voitti (${blueCurrentHp.toFixed(1)}) HP`])
+                    setLogs(logs => [...logs, `${blueStats.name} voitti!`])
                     setWinner(blueStats.name)
                 }
             }
@@ -59,7 +59,7 @@ export default function BothStats(props) {
                 
                 redFightDuration = 0
 
-                setLogs(logs => [...logs, `${redStats.name.split(',')[0]} löi ${blueStats.name.split(',')[0]}a ja teki ${(redStats.attack - redStats.attack * (blueStats.defence / 100)).toFixed(1)} (${redStats.attack} - ${redStats.attack} * ${(blueStats.defence / 100).toFixed(3)}) vahinkoa. ${blueStats.name.split(',')[0]}lle jäi ${blueCurrentHp.toFixed(1)} HP:ta`])
+                setLogs(logs => [...logs, `${redStats.name} löi ja teki ${(redStats.attack - redStats.attack * (blueStats.defence / 100)).toFixed(1)} (${redStats.attack} - ${redStats.attack} * ${(blueStats.defence / 100).toFixed(3)}) vahinkoa. ${blueStats.name}lle jäi ${blueCurrentHp.toFixed(1)} HP:ta.`])
                 
                 if(blueCurrentHp <= 0){
                     blueCurrentHp = 0
@@ -67,7 +67,7 @@ export default function BothStats(props) {
                     clearInterval(blueTimer)
                     clearInterval(redTimer)
 
-                    setLogs(logs => [...logs, `${redStats.name.split(',')[0]} voitti (${redCurrentHp.toFixed(1)}) HP`])
+                    setLogs(logs => [...logs, `${redStats.name} voitti!`])
                     setWinner(redStats.name)
                 }
             }

@@ -11,6 +11,8 @@ function App() {
 
   const [blue, setBlue] = useState("")
   const [red, setRed] = useState("")
+  
+  const [error, setError] = useState("")
 
   const [isShown, setIsShown] = useState(true)
 
@@ -22,12 +24,13 @@ function App() {
         setStats(stats => [...stats.reverse(), response.data.foodStats])
       }else{
         console.log(response.data.error)
-
-        Reset()
+        setError(response.data.error)
       }
     }).catch(error => {
       console.log(error.message)
       console.log(error.response.data)
+
+      setError(error.message)
     })
   }
 
@@ -48,6 +51,7 @@ function App() {
   }
 
   const Reset = () => {
+    setError("")
     setIsShown(true)
     setStats([])
   }
@@ -56,6 +60,10 @@ function App() {
     <div className="container p-4">
 
       <h2 className="text-center">Ruokarähinä</h2>
+
+      {
+        error ? <h4 className="text-center">Error: {error}</h4> : ""
+      }
 
     <div className="d-flex justify-content-center pt-3">
 
