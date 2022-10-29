@@ -99,8 +99,8 @@ export default function BothStats(props) {
             </div>
 
 
-            <details>
-                <summary>Lokit</summary>
+            <details className="text-center">
+                <summary className="pb-2">Lokit</summary>
 
                 {
                     logs.map(log => (
