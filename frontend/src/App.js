@@ -59,25 +59,25 @@ function App() {
   return (
     <div className="container p-4">
 
-      <h2 className="text-center">Ruokarähinä</h2>
+      <h2 className="text-center pb-4">Ruokarähinä</h2>
 
       {
         error ? <h4 className="text-center">Error: {error}</h4> : ""
       }
 
-    <div className="d-flex justify-content-center pt-3">
+    <div className="d-flex justify-content-center">
 
       {
-        isShown ? <div className="form-control w-25 ">
+        isShown ? <div className="form-control w-25">
 
         <form className="p-4" onSubmit={Fetch}>
 
-          <label className="form-label" for="blueInput">Sininen puoli</label>
-          <input id="blueInput" type="text" className="form-control" placeholder="Kurkku" onChange={e => setBlue(e.target.value)} required/>
+          <label className="form-label" htmlFor="blueInput">Sininen puoli</label>
+          <input id="blueInput" type="text" className="form-control" placeholder="Tomaatti" onChange={e => setBlue(e.target.value)} required/>
 
           <p className="text-center pt-4 mb-0">vs.</p>
 
-          <label className="form-label pt-4" for="redInput">Punainen puoli</label>
+          <label className="form-label pt-4" htmlFor="redInput">Punainen puoli</label>
           <input id="redInput" type="text" className="form-control" placeholder="Paprika" onChange={e => setRed(e.target.value)} required/>
 
           <div className="pt-4 text-center">
@@ -91,7 +91,7 @@ function App() {
 
     {
       stats.length === 2 ?
-      <div className="pt-4 pb-2">
+      <div className="pb-2">
           <BothStats blueStats={stats[0]} redStats={stats[1]} />
         </div>
         : ""

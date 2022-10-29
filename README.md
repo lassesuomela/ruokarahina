@@ -17,7 +17,9 @@ Frontend on tehty React.js + Bootstrap 5 yhdistelmällä ja backend on toteutett
   
 ## Muutaman lauseen kuvaus tekemästäsi ratkaisusta
 
-Olen vasta tänä syksynä alkanut opettelemaan Reactin + Bootstrap 5:n käyttöä, joten toteutuksesta ei kovin elegantti tullut, mutta toimivan ratkaisun sain silti tehtyä. Frontendin puolella tuli käytettyä flexboxeja Bootstrapin avulla ja backendi hakee finelin apista elintarvikkeiden ravintoarvot ja palauttaa ne frontendille jsonilla. Vähäsen harmittaa se miten toteutin pelilogiikkani (mm. käytin kahta setInervallia enkä tehnyt molempia samassa + prop drilling). Aloitin varsin myöhään tämän projektin tekemisen (28 päivä), joten se tuli myös tehtyä aika kiireellä. Kaiken kaikkiaan oikeen mukava koodihaaste ja olisi kiva tehdä näitä myös jatkossa.
+Olen vasta tänä syksynä alkanut opettelemaan Reactin + Bootstrap 5:n käyttöä, joten toteutuksesta ei kovin elegantti tullut, mutta toimivan ratkaisun sain silti tehtyä. Frontendin puolella tuli käytettyä flexboxeja Bootstrapin avulla. Backend hakee Finelin API:sta elintarvikkeiden ravintoarvot ja palauttaa ne frontendille jsonilla.
+
+Alussa oli vähän vaikeuksia kun ei modulon käyttö tullut heti mieleen, niin käytin kahta setIntervallia tappelun logiikan hoitamiseen ja miinustelin attackDelaytä, mutta hoksasin käyttää sitä sitten lopuksi. Kaiken kaikkiaan oikeen mukava koodihaaste ja olisi kiva tehdä näitä myös jatkossa.
 
 ## Muuta
 
@@ -29,6 +31,6 @@ Haluan osallistua kilpailuun ja arvontaan sekä minuun voi ottaa yhteyttä mikä
 
 ![peli kännissä](./images/game_on.png)
 
-![Peli ohi](./images/game_won.png)
+![Peli ohi](./images/game_end.png)
 
 ![Lokit](./images/logs.png)

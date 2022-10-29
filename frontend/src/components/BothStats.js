@@ -11,69 +11,58 @@ export default function BothStats(props) {
     const [logs, setLogs] = useState([])
 
     useEffect(() => {
-        Fight(props.blueStats, props.redStats) // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
 
-    const Fight = (blueStats, redStats) => {
+        const Fight = (blueStats, redStats) => {
 
-        let blueFightDuration = 0.0
-        let redFightDuration = 0.0
+            let fightDuration = 0.0
 
-        let redCurrentHp = redStats.hp
-        let blueCurrentHp = blueStats.hp
+            let redCurrentHp = redStats.hp
+            let blueCurrentHp = blueStats.hp
 
-        const blueTimer = setInterval(() => {
-            blueFightDuration += 0.1
+            setLogs(logs => [...logs, `[${fightDuration}s] Taistelu alkaa.`])
 
-            if(Math.floor(blueFightDuration * 10) / 10 - parseFloat(blueStats.attackDelay) === 0.0){
+            const fightTimer = setInterval(() => {
+                fightDuration += 0.1
 
-                redCurrentHp -= blueStats.attack - blueStats.attack * (redStats.defence / 100)
+                if(Math.floor(fightDuration * 10) % (blueStats.attackDelay * 10) / 10 === 0){
+                    redCurrentHp -= blueStats.attack - blueStats.attack * (redStats.defence / 100)
 
-                setRedHp(redCurrentHp)
-
-                blueFightDuration = 0
-
-                setLogs(logs => [...logs, `${blueStats.name} löi ja teki ${(blueStats.attack - blueStats.attack * (redStats.defence / 100)).toFixed(1)} (${blueStats.attack} - ${blueStats.attack} * ${(redStats.defence / 100).toFixed(3)}) vahinkoa. ${redStats.name}lle jäi ${redCurrentHp.toFixed(1)} HP:ta.`])
-
-                if(redCurrentHp <= 0){
-                    redCurrentHp = 0
                     setRedHp(redCurrentHp)
-                    clearInterval(blueTimer)
-                    clearInterval(redTimer)
 
-                    setLogs(logs => [...logs, `${blueStats.name} voitti!`])
-                    setWinner(blueStats.name)
-                }
-            }
+                    setLogs(logs => [...logs, `[${Math.floor(fightDuration * 10) / 10}s] ${blueStats.name} löi ja teki ${(blueStats.attack - blueStats.attack * (redStats.defence / 100)).toFixed(1)} (${blueStats.attack} - ${blueStats.attack} * ${(redStats.defence / 100).toFixed(3)}) vahinkoa. ${redStats.name}lle jäi ${redCurrentHp.toFixed(1)} HP:ta.`])
 
-        }, 100)
+                    if(redCurrentHp <= 0){
+                        redCurrentHp = 0
+                        setRedHp(redCurrentHp)
+                        clearInterval(fightTimer)
 
-        const redTimer = setInterval(() => {
-            redFightDuration += 0.1
+                        setLogs(logs => [...logs, `[${Math.floor(fightDuration * 10) / 10}s] ${blueStats.name} voitti!`])
+                        setWinner(blueStats.name)
+                    }
+                }else if(Math.floor(fightDuration * 10) % (redStats.attackDelay * 10) / 10 === 0){
 
-            if(Math.floor(redFightDuration * 10) / 10 - parseFloat(redStats.attackDelay) === 0.0){
+                    blueCurrentHp -= redStats.attack - redStats.attack * (blueStats.defence / 100)
 
-                blueCurrentHp -= redStats.attack - redStats.attack * (blueStats.defence / 100)
-
-                setBlueHp(blueCurrentHp)
-                
-                redFightDuration = 0
-
-                setLogs(logs => [...logs, `${redStats.name} löi ja teki ${(redStats.attack - redStats.attack * (blueStats.defence / 100)).toFixed(1)} (${redStats.attack} - ${redStats.attack} * ${(blueStats.defence / 100).toFixed(3)}) vahinkoa. ${blueStats.name}lle jäi ${blueCurrentHp.toFixed(1)} HP:ta.`])
-                
-                if(blueCurrentHp <= 0){
-                    blueCurrentHp = 0
                     setBlueHp(blueCurrentHp)
-                    clearInterval(blueTimer)
-                    clearInterval(redTimer)
 
-                    setLogs(logs => [...logs, `${redStats.name} voitti!`])
-                    setWinner(redStats.name)
+                    setLogs(logs => [...logs, `[${Math.floor(fightDuration * 10) / 10}s] ${redStats.name} löi ja teki ${(redStats.attack - redStats.attack * (blueStats.defence / 100)).toFixed(1)} (${redStats.attack} - ${redStats.attack} * ${(blueStats.defence / 100).toFixed(3)}) vahinkoa. ${blueStats.name}lle jäi ${blueCurrentHp.toFixed(1)} HP:ta.`])
+                    
+                    if(blueCurrentHp <= 0){
+                        blueCurrentHp = 0
+                        setBlueHp(blueCurrentHp)
+                        clearInterval(fightTimer)
+
+                        setLogs(logs => [...logs, `[${Math.floor(fightDuration * 10) / 10}s] ${redStats.name} voitti!`])
+                        setWinner(redStats.name)
+                    }
                 }
-            }
+            }, 100)
+        }
 
-        }, 100)
-    }
+        if(winner === "")
+            Fight(props.blueStats, props.redStats) 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []) 
     
     return (
         <>
@@ -84,7 +73,7 @@ export default function BothStats(props) {
                     </div>
                 : ""
             }
-            <div className="d-flex justify-content-center p-4">
+            <div className="d-flex justify-content-center pt-3">
 
                 <StatsDisplay stats={props.blueStats} hp={blueHp / props.blueStats.hp * 100} isBlue={true} />
 
@@ -98,17 +87,19 @@ export default function BothStats(props) {
                 <StatsDisplay stats={props.redStats} hp={redHp / props.redStats.hp * 100}/>
             </div>
 
+            <div className="d-flex justify-content-center">
 
-            <details className="text-center">
-                <summary className="pb-2">Lokit</summary>
+                <details className="d-flex justify-content-start">
+                    <summary className="text-center pb-4">Lokit</summary>
 
-                {
-                    logs.map(log => (
-                        <p>{log}</p>
-                    ))
-                }
-                
-            </details>
+                    {
+                        logs.map((log, index) => (
+                            <p key={index}>{log}</p>
+                        ))
+                    }
+                    
+                </details>
+            </div>
         </>
     )
 }
