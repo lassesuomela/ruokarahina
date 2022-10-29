@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import StatsDisplay from "./StatsDisplay";
-import HealthBar from "./HealthBar";
 
 export default function BothStats(props) {
 
@@ -78,13 +77,16 @@ export default function BothStats(props) {
     
     return (
         <>
-            <HealthBar value={blueHp / props.blueStats.hp * 100}/>
-
-
+            {
+                winner !== "" ? 
+                    <div className="text-center">
+                        <h3>Voittaja on {winner}!</h3>
+                    </div>
+                : ""
+            }
             <div className="d-flex justify-content-center p-4">
 
-
-                <StatsDisplay stats={props.blueStats}/>
+                <StatsDisplay stats={props.blueStats} hp={blueHp / props.blueStats.hp * 100} blue={true} />
 
                 <div className="align-self-end d-grid">
                     <p className="p-3 material-symbols-outlined" title="Health">favorite</p>
@@ -93,18 +95,9 @@ export default function BothStats(props) {
                     <p className="p-3 material-symbols-outlined" title="Attack delay">timer</p>
                 </div>
 
-                <StatsDisplay stats={props.redStats}/>
+                <StatsDisplay stats={props.redStats} hp={redHp / props.redStats.hp * 100}/>
             </div>
 
-            <HealthBar value={redHp / props.redStats.hp * 100}/>
-
-            {
-                winner !== "" ? 
-                    <div className="text-center p-4">
-                        <h3>Voittaja on {winner}!</h3>
-                    </div>
-                : ""
-            }
 
             <details>
                 <summary>Lokit</summary>

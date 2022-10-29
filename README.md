@@ -2,8 +2,7 @@
 
 ## Mitä teknologioita olet käyttänyt ja millä käyttöjärjestelmällä?
 
-Frontend on tehty React.js:llä ja backend on toteutettu Node.js:llä käyttäen express.js framewörkkiä. Axiosta on käytetty http pyyntöjen tekemiseen frontendin ja backendin välillä sekä myös backendin ja [finelin apin](https://fineli.fi/fineli/api/v1/foods?q=omena) välilä.
-Windows 10 testattu.
+Frontend on tehty React.js + Bootstrap 5 yhdistelmällä ja backend on toteutettu Node.js:llä käyttäen express.js framewörkkiä. Axiosta on käytetty http pyyntöjen tekemiseen frontendin ja backendin välillä sekä myös backendin ja [finelin apin](https://fineli.fi/fineli/api/v1/foods?q=omena) välilä. Windows 10:llä testattu.
 
 ## Ohjeet miten ratkaisusi pystytetään ja käynnistetään
 
@@ -18,8 +17,8 @@ Windows 10 testattu.
   
 ## Muutaman lauseen kuvaus tekemästäsi ratkaisusta
 
-Tänä syksynä olen vasta alkanut opettelemaan Reactin käyttöä, joten toteutuksesta ei kovin elegantti tullut, mutta toimivan ratkaisun sain silti tehtyä. Aloitin kanssa varsin myöhään tämän projektin tekemisen (28 päivä), joten se tuli myös tehtyä aika kiireellä. Kaiken kaikkiaan oikeen mukava koodihaaste ja olisi kiva tehdä näitä myös jatkossa.
+Tänä syksynä olen vasta alkanut opettelemaan Reactin + Bootstrap 5:n käyttöä, joten toteutuksesta ei kovin elegantti tullut, mutta toimivan ratkaisun sain silti tehtyä. Vähäsen harmittaa se miten toteutin pelilogiikkani (käytin kahta setInervallia enkä tehnyt molempia samassa). Aloitin varsin myöhään tämän projektin tekemisen (28 päivä), joten se tuli myös tehtyä aika kiireellä. Kaiken kaikkiaan oikeen mukava koodihaaste ja olisi kiva tehdä näitä myös jatkossa.
 
 ## Muuta
 
-Haluan osallistua kilpailuun ja arvontaan sekä minuun voi ottaa yhteyttä mikäli työhaastatteluja olisi tarjolla (harjoitteluun, kesätyöhön, osa-aikaiseen, tjms, kun kuitenkin koulussa vielä olen).
+Haluan osallistua kilpailuun ja arvontaan sekä minuun voi ottaa yhteyttä mikäli työhaastatteluja olisi tarjolla (harjoitteluun, kesätyöhön, osa-aikaiseen, tjms, kun kuitenkin opiskelija vielä olen).

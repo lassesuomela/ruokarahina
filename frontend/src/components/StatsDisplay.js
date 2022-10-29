@@ -1,13 +1,19 @@
 import React from 'react'
+import HealthBar from "./HealthBar";
 
 export default function StatsDisplay(props) {
   return (
-    <div className="text-center">
-      <p className="p-3 text-capitalize border-secondary border-bottom border-2">{props.stats.name}</p>
-      <p className="p-3">{props.stats.hp || "n/a"}</p>
-      <p className="p-3">{props.stats.attack || "n/a"}</p>
-      <p className="p-3">{props.stats.defence || "n/a"}</p>
-      <p className="p-3">{props.stats.attackDelay || "n/a"}s</p>
-    </div>
+    <>
+      <div className="text-center">
+
+        <HealthBar value={props.hp} blue={props.blue}/>
+
+        <p className="p-3 text-capitalize border-secondary border-bottom border-2">{props.stats.name}</p>
+        <p className="p-3">{props.stats.hp || "n/a"}</p>
+        <p className="p-3">{props.stats.attack || "n/a"}</p>
+        <p className="p-3">{props.stats.defence || "n/a"}</p>
+        <p className="p-3">{props.stats.attackDelay || "n/a"}s</p>
+      </div>
+    </>
   )
 }

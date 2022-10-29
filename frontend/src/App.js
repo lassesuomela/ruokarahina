@@ -65,11 +65,13 @@ function App() {
           <label className="form-label" for="blueInput">Sininen puoli</label>
           <input id="blueInput" type="text" className="form-control" placeholder="Sininen puoli" onChange={e => setBlue(e.target.value)} required/>
 
+          <p className="text-center pt-4 mb-0">vs.</p>
+
           <label className="form-label pt-4" for="redInput">Punainen puoli</label>
           <input id="redInput" type="text" className="form-control" placeholder="Punainen puoli" onChange={e => setRed(e.target.value)} required/>
 
           <div className="pt-4 text-center">
-            <button type="submit" className="btn btn-primary">Hae</button>
+            <button type="submit" className="btn btn-dark">Hae</button>
           </div>
         </form>
       </div>
