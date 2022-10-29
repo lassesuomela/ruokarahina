@@ -11,7 +11,7 @@ export default function BothStats(props) {
     const [logs, setLogs] = useState([])
 
     useEffect(() => {
-        Fight(props.blueStats, props.redStats)
+        Fight(props.blueStats, props.redStats) // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const Fight = (blueStats, redStats) => {
@@ -33,7 +33,7 @@ export default function BothStats(props) {
 
                 blueFightDuration = 0
 
-                setLogs(logs => [...logs, `${blueStats.name} löi ${redStats.name}a ja teki ${(blueStats.attack - blueStats.attack * (redStats.defence / 100)).toFixed(2)} vahinkoa. ${redStats.name}lle jäi ${redCurrentHp.toFixed(1)} hp`])
+                setLogs(logs => [...logs, `${blueStats.name} löi ${redStats.name}a ja teki ${(blueStats.attack - blueStats.attack * (redStats.defence / 100)).toFixed(1)} (${blueStats.attack} - ${blueStats.attack} * ${(redStats.defence / 100).toFixed(3)}) vahinkoa. ${redStats.name}lle jäi ${redCurrentHp.toFixed(1)} HP:ta`])
 
                 if(redCurrentHp <= 0){
                     redCurrentHp = 0
@@ -41,7 +41,7 @@ export default function BothStats(props) {
                     clearInterval(blueTimer)
                     clearInterval(redTimer)
 
-                    setLogs(logs => [...logs, `${blueStats.name} voitti`])
+                    setLogs(logs => [...logs, `${blueStats.name} voitti (${blueCurrentHp.toFixed(1)}) HP`])
                     setWinner(blueStats.name)
                 }
             }
@@ -59,7 +59,7 @@ export default function BothStats(props) {
                 
                 redFightDuration = 0
 
-                setLogs(logs => [...logs, `${redStats.name} löi ${blueStats.name}a ja teki ${(redStats.attack - redStats.attack * (blueStats.defence / 100)).toFixed(2)} vahinkoa. ${blueStats.name}lle jäi ${blueCurrentHp.toFixed(1)} hp`])
+                setLogs(logs => [...logs, `${redStats.name} löi ${blueStats.name}a ja teki ${(redStats.attack - redStats.attack * (blueStats.defence / 100)).toFixed(1)} (${redStats.attack} - ${redStats.attack} * ${(blueStats.defence / 100).toFixed(3)}) vahinkoa. ${blueStats.name}lle jäi ${blueCurrentHp.toFixed(1)} HP:ta`])
                 
                 if(blueCurrentHp <= 0){
                     blueCurrentHp = 0
@@ -67,7 +67,7 @@ export default function BothStats(props) {
                     clearInterval(blueTimer)
                     clearInterval(redTimer)
 
-                    setLogs(logs => [...logs, `${redStats.name} voitti`])
+                    setLogs(logs => [...logs, `${redStats.name} voitti (${redCurrentHp.toFixed(1)}) HP`])
                     setWinner(redStats.name)
                 }
             }

@@ -20,8 +20,12 @@ const GetFoodByName = (req, res) => {
             }
         })
 
+        if(foodData.length === 0){
+            return res.json({status:"error", error:"No data found"})
+        }
+
         const stats = {
-            name: name,
+            name: foodData[0].name.fi,
             hp: foodData[0].energyKcal.toFixed(1),
             attack: foodData[0].carbohydrate.toFixed(1),
             defence: foodData[0].protein.toFixed(1),
