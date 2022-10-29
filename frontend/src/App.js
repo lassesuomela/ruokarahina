@@ -18,10 +18,12 @@ function App() {
 
     axios.get(url + foodName)
     .then(response => {
-      if(response.data.status){
+      if(response.data.status === "success"){
         setStats(stats => [...stats.reverse(), response.data.foodStats])
       }else{
-        console.log("error: " + response.data.error)
+        console.log(response.data.error)
+
+        Reset()
       }
     }).catch(error => {
       console.log(error.message)
@@ -75,17 +77,23 @@ function App() {
           </div>
         </form>
       </div>
-      : <button className="btn btn-dark" onClick={Reset}>Reset</button>
+      : ""
       }
     </div>
 
     {
       stats.length === 2 ?
-      <div className="p-4">
+      <div className="pt-4 pb-2">
           <BothStats blueStats={stats[0]} redStats={stats[1]} />
         </div>
         : ""
-    }     
+    }
+
+      <div className="text-center">
+      {
+        !isShown ? <button className="btn btn-dark" onClick={Reset}>Reset</button> : ""
+      }
+      </div>
     </div>
   );
 }

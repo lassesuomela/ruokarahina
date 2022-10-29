@@ -107,6 +107,7 @@ export default function BothStats(props) {
                         <p>{log}</p>
                     ))
                 }
+                
             </details>
         </>
     )
