@@ -21,10 +21,6 @@ Olen vasta tänä syksynä alkanut opettelemaan Reactin + Bootstrap 5:n käyttö
 
 Alussa oli vähän vaikeuksia kun ei modulon käyttö tullut heti mieleen, niin käytin kahta setIntervallia tappelun logiikan hoitamiseen ja miinustelin attackDelaytä, mutta hoksasin käyttää sitä sitten lopuksi. Kaiken kaikkiaan oikeen mukava koodihaaste ja olisi kiva tehdä näitä myös jatkossa.
 
-## Muuta
-
-Haluan osallistua kilpailuun ja arvontaan sekä minuun voi ottaa yhteyttä mikäli työhaastatteluja olisi tarjolla (harjoitteluun, kesätyöhön, osa-aikaiseen, tjms, kun kuitenkin opiskelija vielä olen).
-
 ## Kuvia
 
 ![Pelin aloitus](./images/game_start.png)
